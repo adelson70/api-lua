@@ -1,16 +1,15 @@
 import requests
-from bs4 import BeautifulSoup
 from app.config import Config
-from datetime import datetime
+
+from app.utils.datetime import get_data_atual
 
 def get_fase_lua_hoje():
     try:
         url = Config.BASE_URL
+        data_atual = get_data_atual()
         response = requests.get(url, headers={"User-Agent": Config.USER_AGENT})
 
-        # teste
-        
-        print(response.text)
+        print('Fase da lua hoje: ', data_atual)
         
         return True
 
