@@ -7,6 +7,8 @@ def get_fase_lua_hoje():
     try:
         url = Config.BASE_URL
         response = requests.get(url, headers={"User-Agent": Config.USER_AGENT})
+
+        # teste
         
         print(response.text)
         
