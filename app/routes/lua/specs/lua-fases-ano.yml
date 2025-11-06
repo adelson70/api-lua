@@ -1,0 +1,53 @@
+{
+  "tags": ["Lua"],
+  "summary": "Obter fases da lua do ano",
+  "description": "Retorna as fases da lua organizadas por mês e dia para o ano atual.",
+  "produces": ["application/json"],
+  "responses": {
+    "200": {
+      "description": "Sucesso",
+      "examples": {
+        "application/json": {
+          "status": "success",
+          "message": "Fases da lua do ano obtidas com sucesso",
+          "data": {
+            "ano": 2025,
+            "meses": {
+              "janeiro": {
+                "1": "LUA CRESCENTE",
+                "2": "LUA CRESCENTE",
+                "3": "LUA CRESCENTE"
+              },
+              "fevereiro": {
+                "1": "LUA NOVA",
+                "2": "LUA NOVA",
+                "3": "LUA NOVA"
+              }
+            }
+          }
+        }
+      }
+    },
+    "500": {
+      "description": "Erro interno",
+      "examples": {
+        "application/json": {
+          "status": "error",
+          "message": "Não foi possível obter as fases da lua do ano",
+          "data": null
+        }
+      }
+    },
+    "401": {
+      "description": "Não autorizado",
+      "examples": {
+        "application/json": {
+          "status": "error",
+          "message": "Token não encontrado",
+          "data": null
+        }
+      }
+    }
+  }
+}
+
