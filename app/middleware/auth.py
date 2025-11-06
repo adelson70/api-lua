@@ -1,0 +1,10 @@
+from flask import request
+from app.utils.response_formatter import make_response
+
+def auth_middleware(app):
+    @app.before_request
+    def auth():
+        token = request.headers.get('Authorization')
+        
+        if not token:
+            return make_response(message="Token não encontrado", status="error", code=401)
