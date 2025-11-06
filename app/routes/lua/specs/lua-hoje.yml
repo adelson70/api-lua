@@ -12,7 +12,7 @@
             "message": "Fase da lua hoje obtida com sucesso",
             "data": {
               "fase": "Cheia",
-              "data": "2025-11-06"
+              "data": "06/11/2025"
             }
           }
         }
@@ -23,6 +23,16 @@
           "application/json": {
             "status": "error",
             "message": "Não foi possível obter a fase da lua",
+            "data": null
+          }
+        }
+      },
+      "401": {
+        "description": "Não autorizado",
+        "examples": {
+          "application/json": {
+            "status": "error",
+            "message": "Token não encontrado",
             "data": null
           }
         }
