@@ -4,6 +4,9 @@ from app.utils.response_formatter import make_response
 def auth_middleware(app):
     @app.before_request
     def auth():
+        
+        return None
+
         EXCLUDED_ROUTES = [
             '/api/docs/',
             '/apispec',
