@@ -1,0 +1,31 @@
+{
+    "tags": ["Lua"],
+    "summary": "Obter fase da lua de hoje",
+    "description": "Retorna a fase da lua correspondente à data atual.",
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "Sucesso",
+        "examples": {
+          "application/json": {
+            "status": "success",
+            "message": "Fase da lua hoje obtida com sucesso",
+            "data": {
+              "fase": "Cheia",
+              "data": "2025-11-06"
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Erro interno",
+        "examples": {
+          "application/json": {
+            "status": "error",
+            "message": "Não foi possível obter a fase da lua",
+            "data": null
+          }
+        }
+      }
+    }
+  }

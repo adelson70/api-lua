@@ -23,6 +23,13 @@ def create_app():
     auth_middleware(app)
 
     # configura o swagger
+    app.config['SWAGGER'] = {
+          'title': 'API Lua',
+          'uiversion': 3,
+          'specs_route': '/api/docs/',
+          'static_url_path': '/flasgger_static'
+    }
+
     Swagger(app, config=swagger_config)
 
     return app

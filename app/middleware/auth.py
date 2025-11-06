@@ -4,7 +4,13 @@ from app.utils.response_formatter import make_response
 def auth_middleware(app):
     @app.before_request
     def auth():
-        EXCLUDED_ROUTES = ['/api/docs/']
+        EXCLUDED_ROUTES = [
+            '/api/docs/',
+            '/apispec',
+            '/apispec.json',
+            '/static/',
+            '/flasgger_static/'
+            ]
 
         if any(request.path.startswith(prefix) for prefix in EXCLUDED_ROUTES):
             return None
