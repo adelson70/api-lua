@@ -30,8 +30,32 @@ def _carregar_fases_local(ano: str):
         return json.load(arquivo)
 
 
-def verificar_fases_ano(data_atual: str):
-    ano = data_atual.split('/')[-1]
+def _normalizar_ano(referencia):
+    if referencia is None:
+        return None
+
+    if isinstance(referencia, int):
+        return str(referencia)
+
+    texto = str(referencia).strip()
+
+    if not texto:
+        return None
+
+    if '/' in texto:
+        texto = texto.split('/')[-1]
+
+    try:
+        return str(int(texto))
+    except (TypeError, ValueError):
+        return None
+
+
+def verificar_fases_ano(referencia):
+    ano = _normalizar_ano(referencia)
+
+    if ano is None:
+        return None
 
     try:
         fases_locais = _carregar_fases_local(ano)

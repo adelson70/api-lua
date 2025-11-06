@@ -5,3 +5,6 @@ def get_data_atual():
 
 def get_ano_atual():
     return datetime.now().strftime("%Y")
+
+def get_mes_atual():
+    return datetime.now().strftime("%m")

@@ -1,8 +1,15 @@
 {
   "tags": ["Lua"],
-  "summary": "Obter fases da lua do ano",
-  "description": "Retorna as fases da lua organizadas por mês e dia para o ano informado.",
+  "summary": "Obter fases da lua do mês",
+  "description": "Retorna as fases da lua para um mês e ano específicos. Caso nenhum parâmetro seja informado, o serviço utiliza o mês e o ano atuais.",
   "parameters": [
+    {
+      "name": "mes",
+      "in": "query",
+      "type": "integer",
+      "required": false,
+      "description": "Número do mês (1-12) sem zero à esquerda."
+    },
     {
       "name": "ano",
       "in": "query",
@@ -18,20 +25,15 @@
       "examples": {
         "application/json": {
           "status": "success",
-          "message": "Fases da lua do ano obtidas com sucesso",
+          "message": "Fases da lua do mês obtidas com sucesso",
           "data": {
             "ano": 2025,
-            "meses": {
-              "janeiro": {
-                "1": "LUA CRESCENTE",
-                "2": "LUA CRESCENTE",
-                "3": "LUA CRESCENTE"
-              },
-              "fevereiro": {
-                "1": "LUA NOVA",
-                "2": "LUA NOVA",
-                "3": "LUA NOVA"
-              }
+            "mes": 3,
+            "nome_mes": "marco",
+            "fases": {
+              "1": "LUA NOVA",
+              "2": "LUA NOVA",
+              "3": "LUA NOVA"
             }
           }
         }
@@ -42,7 +44,7 @@
       "examples": {
         "application/json": {
           "status": "error",
-          "message": "Fases da lua do ano não encontradas",
+          "message": "Fases da lua do mês não encontradas para os parâmetros informados",
           "data": null
         }
       }
@@ -52,7 +54,7 @@
       "examples": {
         "application/json": {
           "status": "error",
-          "message": "Não foi possível obter as fases da lua do ano",
+          "message": "Não foi possível obter as fases da lua do mês",
           "data": null
         }
       }
@@ -69,3 +71,4 @@
     }
   }
 }
+
