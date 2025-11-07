@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flasgger import Swagger
 from app.config import Config
 
@@ -16,6 +17,9 @@ def create_app():
     app.config['JSON_AS_ASCII'] = False
     app.config.from_object(Config)
 
+    # configurando o cors
+    CORS(app, resources={r"/*": {"origins": Config.CORS_ALLOW_ORIGINS}})
+    
     # registra as rotas
     app.register_blueprint(lua_bp, url_prefix='/lua')
 
